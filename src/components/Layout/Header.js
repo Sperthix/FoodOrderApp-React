@@ -2,12 +2,13 @@ import React, { Fragment } from "react";
 
 import styles from "./Header.module.css";
 import backgroundImg from '../../assets/McWrap.jpg';
+import HeaderButton from "./HeaderButton";
 
 const Header = (props) => {
   return <Fragment>
       <header className={styles.header}>
-          <h1>Mekacik</h1>
-          <button>Cart</button>
+          <h1>Mekáčik</h1>
+          <HeaderButton>Cart</HeaderButton>
       </header>
       <div className={styles['main-image']}>
           <img src={backgroundImg} alt="Delicious Mc wraps <3" />
