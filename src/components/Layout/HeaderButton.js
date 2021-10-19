@@ -6,7 +6,7 @@ import CartIcon from "../Cart/CartIcon";
 const HeaderButton = (props) => {
     return <button className={styles.button}>
         <span className={styles.icon}><CartIcon /></span>
-        <span>Cart</span>
+        <span>Košík</span>
         <span className={styles.badge}>0</span>
     </button>
 };
