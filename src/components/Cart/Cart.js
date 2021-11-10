@@ -26,6 +26,16 @@ const Cart = (props) => {
     setOrdering(true);
   };
 
+  const submitOrderHandler = (userData) => {
+    fetch('https://react-tutorial-dd1ce-default-rtdb.europe-west1.firebasedatabase.app/meal-orders.json', {
+      method: 'POST',
+      body: JSON.stringify({
+        user: userData,
+        orderedItems: cartCtx.items
+      })
+    })
+  };
+
   const cartItems = (
     <ul className={styles["cart-items"]}>
       {cartCtx.items.map((item) => (
@@ -48,7 +58,7 @@ const Cart = (props) => {
         <span>Celkom</span>
         <span>{totalPrice}</span>
       </div>
-      {ordering && <Checkout onCancel={props.onClose}/>}
+      {ordering && <Checkout onConfirm={submitOrderHandler} onCancel={props.onClose} />}
       {!ordering && (
         <div className={styles.actions}>
           <button className={styles["button--alt"]} onClick={props.onClose}>
