@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import styles from "./Checkout.module.css";
 
 const isEmpty = (value) => value.trim() === "";
-const isNotPostal = (value) => value.trim().length !== 5;
+const isPostal = (value) => value.trim().length === 5;
 
 const Checkout = (props) => {
   const [formInputsValidity, setFormInputsValidity] = useState({
@@ -28,14 +28,14 @@ const Checkout = (props) => {
 
     const nameIsValid = !isEmpty(enteredName);
     const streetIsValid = !isEmpty(enteredStreet);
-    const postalIsValid = !isNotPostal(enteredPostal);
+    const postalIsValid = isPostal(enteredPostal);
     const cityIsValid = !isEmpty(enteredCity);
 
     setFormInputsValidity({
-      name: enteredName,
-      street: enteredStreet,
-      city: enteredCity,
-      postal: enteredPostal,
+      name: nameIsValid,
+      street: streetIsValid,
+      city: cityIsValid,
+      postal: postalIsValid,
     });
 
     const formIsVaid =
@@ -50,7 +50,7 @@ const Checkout = (props) => {
       street: enteredStreet,
       postal: enteredPostal,
       city: enteredCity,
-    })
+    });
   };
 
   const nameStyles = `${styles.control} ${

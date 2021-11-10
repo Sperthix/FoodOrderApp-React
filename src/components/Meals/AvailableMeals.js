@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import Card from "../UI/Card";
 import styles from "./AvailableMeals.module.css";
 import MealItem from "./MealItem";
-import Meals from "./Meals";
 
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
